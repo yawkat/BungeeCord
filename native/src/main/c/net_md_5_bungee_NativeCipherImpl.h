@@ -9,27 +9,35 @@ extern "C" {
 #endif
 /*
  * Class:     net_md_5_bungee_NativeCipherImpl
- * Method:    init
+ * Method:    initKey
  * Signature: ([B)J
  */
-JNIEXPORT jlong JNICALL Java_net_md_15_bungee_NativeCipherImpl_init
+JNIEXPORT jlong JNICALL Java_net_md_15_bungee_NativeCipherImpl_initKey
+  (JNIEnv *, jobject, jbyteArray);
+
+/*
+ * Class:     net_md_5_bungee_NativeCipherImpl
+ * Method:    initIV
+ * Signature: ([B)J
+ */
+JNIEXPORT jlong JNICALL Java_net_md_15_bungee_NativeCipherImpl_initIV
   (JNIEnv *, jobject, jbyteArray);
 
 /*
  * Class:     net_md_5_bungee_NativeCipherImpl
  * Method:    free
- * Signature: (J)V
+ * Signature: (JJ)V
  */
 JNIEXPORT void JNICALL Java_net_md_15_bungee_NativeCipherImpl_free
-  (JNIEnv *, jobject, jlong);
+  (JNIEnv *, jobject, jlong, jlong);
 
 /*
  * Class:     net_md_5_bungee_NativeCipherImpl
  * Method:    cipher
- * Signature: (ZJ[BJJI)V
+ * Signature: (ZJJJJI)V
  */
 JNIEXPORT void JNICALL Java_net_md_15_bungee_NativeCipherImpl_cipher
-  (JNIEnv *, jobject, jboolean, jlong, jbyteArray, jlong, jlong, jint);
+  (JNIEnv *, jobject, jboolean, jlong, jlong, jlong, jlong, jint);
 
 #ifdef __cplusplus
 }
